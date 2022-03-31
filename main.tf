@@ -26,6 +26,7 @@ resource "aws_subnet" "hashicat" {
 
 resource "aws_instance" "hashicat" {
   ami                         = var.ami
+  key_name                    = aws_key_pair.hashicat.key_name
   instance_type               = var.hello_tf_instance_type
   subnet_id                   = aws_subnet.hashicat.id
   associate_public_ip_address = true
